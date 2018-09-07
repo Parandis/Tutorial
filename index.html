@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link href="https://fonts.googleapis.com/css?family=Chewy|Indie+Flower" rel="stylesheet">
+	<link href="styles/style.css" rel="stylesheet" type="text/css"/>
+	<link href="styles/prism.css" rel="stylesheet" type="text/css"/>
+	<link rel="shortcut icon" href="favicon.ico"/>
+	<title>JavaScript & jQuery Tutorial</title>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102160523-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+<body>
+<main>
+	<header>
+	<h1>Learn How To Code in Java !!!!!! </h1>
+	 <nav class="nav-bar">
+		<ul>
+			<li><a href="index.html"><span>Tutorial I</span></a></li>
+			<li><a href="p1.html">Tutorial II</a></li>
+			<li><a href="p2.html">Tutorial III</a></li>
+		</ul>
+	 </nav>
+	</header>
+
+
+<div class="intro">
+
+	<div class="paragraph">
+	<h1>Introduction</h1>
+	<p>These our best friends to help us make our website awesome!
+	Let's take a look at some of great thing that we can do using them.<br>
+	<p>Here is my 3 examples of how you can use them toghether and make nice things!</p>
+	</div>
+
+	<img src="images/logo.png" alt="logo">
+</div>
+
+<div class="tutorial01">
+<h1>Tutorial #1 --> Automatic slide-show on Mouseover</h1>
+	<p>Move your mouse around the picture and pay attention to slide show numbers... </p>  
+  	<div class="slideshow-container" id="slideshow">
+
+		  <div class="slide">
+		  	<img src="images/pic01.JPG" alt="landscape" class="fade">
+				<div class="slide-number">1 / 6</div>
+		  </div>
+
+		  <div class="slide">
+		  	<img src="images/pic02.JPG" alt="landscape" class="fade">
+				<div class="slide-number">2 / 6</div>
+		  </div>
+
+		  <div class="slide">
+		  	<img src="images/pic03.JPG" alt="landscape" class="fade">
+				<div class="slide-number">3 / 6</div>
+		  </div>
+
+		  <div class="slide">
+		  	<img src="images/pic04.JPG" alt="landscape" class="fade">
+				<div class="slide-number">4 / 6</div>
+		  </div>
+
+		  <div class="slide">
+		  	<img src="images/pic05.JPG" alt="landscape" class="fade">
+				<div class="slide-number">5 / 6</div>
+		  </div>
+
+		  <div class="slide">
+		  	<img src="images/pic06.JPG" alt="landscape" class="fade">
+				<div class="slide-number">6 / 6</div>
+		  </div>
+  
+  
+	</div><!-- end of slide show cotainer-->
+
+</div> <!-- end of tutorial-->
+
+
+<p>#1 HTML is just adding img(s) with their numbers to keep track of the direction of slide show.</p>
+<pre class="language-markup">
+<code class="language-markup">
+<script type="prism-html-markup">
+	<div class="slideshow-container" id="slideshow">
+	  <div class="slide">
+	  	<img src="images/pic01.JPG" alt="landscape" class="fade">
+		<div class="slide-number">1 / 6</div>
+	  </div>
+	  <div class="slide">
+	  	<img src="images/pic02.JPG" alt="landscape" class="fade">
+		<div class="slide-number">2 / 6</div>
+	  </div>
+	  <div class="slide">
+	  	<img src="images/pic03.JPG" alt="landscape" class="fade">
+		<div class="slide-number">3 / 6</div>
+	  </div>
+	  <div class="slide">
+	  	<img src="images/pic04.JPG" alt="landscape" class="fade">
+		<div class="slide-number">4 / 6</div>
+	  </div>
+	  <div class="slide">
+	  	<img src="images/pic05.JPG" alt="landscape" class="fade">
+		<div class="slide-number">5 / 6</div>
+	  </div>
+	  <div class="slide">
+	  	<img src="images/pic06.JPG" alt="landscape" class="fade">
+		<div class="slide-number">6 / 6</div>
+	  </div>
+	</div>
+</script></code>
+</pre>	  
+ 
+
+<p>#2 on CSS we need to hidden the over flow to just show one picture at a time...</p>
+<p>Also an animation to fade the picture and show the next one.</p>
+<pre class="language-css">
+<code class="language-css"> 
+		/* Slideshow container */
+		.slideshow-container {
+		  max-width: 1000px;
+		  position: relative;
+		  margin-left: 25%;
+		  margin-top: 5%;
+		  overflow: hidden;
+		  height: 397px;
+		  width: 500px;
+		}
+		.slide {
+			width: 500px;
+			height: 397px;
+			position: absolute;
+			left: 0;
+			right: 0;
+			background-color: white;
+		}
+		.slide-number{
+			margin-left: 240px;
+		}
+		/* Fading animation */
+		.fade {
+		  -webkit-animation-name: fade;
+		  -webkit-animation-duration: 1.5s;
+		  animation-name: fade;
+		  animation-duration: 1.5s;
+		}
+		@-webkit-keyframes fade {
+		  from {opacity: .4} 
+		  to {opacity: 1}
+		}
+		@keyframes fade {
+		  from {opacity: .4} 
+		  to {opacity: 1}
+		}
+</code>
+</pre>
+
+<p>#3 Finally the most important one which make the pictures slide to right or left based on the position of the mouse.</p>
+<pre class="language-js">
+<code class="language-js">
+
+		const $slidesContainer = $('#slideshow');
+		const $slides = $slidesContainer.children('div');
+		const imgWidth = $slides.first().width();
+		const slideDuration = 2000;
+		let isSlideAnimating = false;
+		let timer;
+
+		$slides.each(function(i){
+		  const leftPos = i * imgWidth;
+		  $(this).css('left', leftPos);
+		  
+		});
+
+		$slides.last()
+		       .prependTo($slidesContainer)
+		       .css('left', -(imgWidth));
+
+		$slidesContainer.on('mouseleave', pauseSlides);
+
+		function pauseSlides(){
+		  clearInterval(timer);
+		}
+
+		function startSlides(){
+		  timer = setInterval(nextSlide, slideDuration);
+		}
+
+		function startSlidesPrev(){
+		  timer = setInterval(prevSlide, slideDuration);
+		}
+
+		function startSlidesNext(){
+		  timer = setInterval(nextSlide, slideDuration);
+		}
+
+		function prevSlide(e){    		  
+		  if(isSlideAnimating){
+		    return;
+		  }
+		  if(e){
+		    pauseSlides();
+		  }
+		  
+		  isSlideAnimating = true;
+		  
+		  $slidesContainer.children()
+		                  .last()
+		                  .css('left', -(imgWidth * 2))
+		                  .prependTo($slidesContainer);
+  
+		   $slides.animate({'left': '+=' + imgWidth }, 300)
+		          .promise()
+		          .done( () => slideAnimationComplete(e, 'prev') );                     
+		}
+
+		function nextSlide(e){    
+		  
+		  if(isSlideAnimating){
+		    return;
+		  }
+		  
+		  if(e){
+		    pauseSlides(e);
+		  } 
+		  
+		  isSlideAnimating = true;
+		  
+		  $slidesContainer.children()
+		                  .first()
+		                  .css('left', imgWidth * ($slides.length - 1) )
+		                  .appendTo($slidesContainer);
+		 
+		  
+		  $slides.animate({'left': '-=' + imgWidth }, 300)
+		         .promise()
+		         .done( () => slideAnimationComplete(e, 'next') );  
+
+		} 
+
+		function slideAnimationComplete(evt, prevNext){
+		  isSlideAnimating = false;
+		  if(evt){
+		    if(prevNext === 'prev'){
+		      startSlidesPrev();
+		    }else{
+		      startSlidesNext();
+		    }
+		  } 
+		} 
+
+		var divPos = {};
+		var offset = $slidesContainer.offset();
+		var scWidth = $slidesContainer.width();
+		var scHeight = $slidesContainer.height();
+		var inLeftSide = false;
+		var inRightSide = false;
+		var leftSideCounter = 0;
+		var rightSideCounter = 0;
+
+		$slidesContainer.mousemove(function(e){
+		    divPos = {
+		        left: e.pageX - offset.left,
+		        top: e.pageY - offset.top
+		    };
+		    if(divPos.left > 0 && divPos.left <(scWidth / 2)){
+		      if(rightSideCounter > 0){
+		        leftSideCounter = 0;
+		        rightSideCounter = 0;
+		      }
+		      if(leftSideCounter === 0){
+		        clearInterval(timer);
+		        leftSideCounter++;
+		        startSlidesPrev();
+		      }
+		    }else {
+		      if(rightSideCounter === 0){
+		        clearInterval(timer);
+		        rightSideCounter++;
+		        startSlidesNext();
+		      }
+		    }
+		});
+		$slidesContainer.mouseenter(function(e){
+		  if(divPos.left > 0 && divPos.left ((scWidth/2)){
+		    inLeftSide = true;
+		  }else {
+		    inRightSide = true;
+		  }
+		});
+		$slidesContainer.mouseleave(function(e){
+		  inLeftSide = false;
+		  inRightSide = false;
+		  leftSideCounter = 0;
+		  rightSideCounter = 0;
+		});
+
+</code>
+</pre>	
+<button class="scrollup" id="myBtn">TOP</button>
+</main>
+<footer>&copy; | Pranadis T. Saheli</footer>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://malsup.github.io/jquery.cycle2.js"></script>
+<script src="scripts/prism.js"></script>
+<script src="scripts/script.js"></script>
+</body>
+</html>
